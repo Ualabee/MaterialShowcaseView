@@ -3,11 +3,11 @@ apply plugin: 'maven-publish'
 
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 33
 
     defaultConfig {
         minSdkVersion 12
-        targetSdkVersion 28
+        targetSdkVersion 33
     }
     buildTypes {
         release {
@@ -15,6 +15,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    namespace 'uk.co.deanwild.materialshowcaseview'
 }
 
 dependencies {

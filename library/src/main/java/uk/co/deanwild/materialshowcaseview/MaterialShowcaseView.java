@@ -12,6 +12,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -22,7 +23,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -63,7 +66,7 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
     private View mContentBox;
     private TextView mTitleTextView;
     private TextView mContentTextView;
-    private TextView mDismissButton;
+    private Button mDismissButton;
     private boolean mHasCustomGravity;
     private TextView mSkipButton;
     private int mGravity;
@@ -453,6 +456,30 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
         }
     }
 
+    private void setDismissButtonGravity(int gravity){
+        if (mDismissButton != null) {
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mDismissButton.getLayoutParams();
+            params.gravity = gravity;
+            mDismissButton.setLayoutParams(params);
+        }
+    }
+
+    private void setDismissButtonBackground(Drawable background){
+        if (mDismissButton != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                mDismissButton.setBackground(background);
+            } else {
+                mDismissButton.setBackgroundDrawable(background);
+            }
+        }
+    }
+
+    private void setDismissButtonBackgroundTint(int color){
+        if (mDismissButton != null) {
+            mDismissButton.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+        }
+    }
+
     private void setSkipText(CharSequence skipText) {
         if (mSkipButton != null) {
             mSkipButton.setText(skipText);
@@ -681,6 +708,21 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
          */
         public Builder setDismissText(int resId) {
             return setDismissText(activity.getString(resId));
+        }
+
+        public Builder setDismissButtonGravity(int gravity){
+            showcaseView.setDismissButtonGravity(gravity);
+            return this;
+        }
+
+        public Builder setDismissButtonBackground(Drawable background){
+            showcaseView.setDismissButtonBackground(background);
+            return this;
+        }
+
+        public Builder setDismissButtonBackgroundTint(int color){
+            showcaseView.setDismissButtonBackgroundTint(color);
+            return this;
         }
 
         public Builder setDismissText(CharSequence dismissText) {

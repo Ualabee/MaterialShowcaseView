@@ -2,6 +2,7 @@ package uk.co.deanwild.materialshowcaseviewsample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -51,6 +52,7 @@ public class SimpleSingleExample extends AppCompatActivity implements View.OnCli
                 .setTarget(mButtonShow)
                 .setShape(new OvalShape())
                 .setTitleText("Hello")
+                .setDismissButtonGravity(Gravity.CENTER_HORIZONTAL)
                 .setDismissText("GOT IT")
                 .setContentText("This is some amazing feature you should know about")
                 .setDelay(withDelay) // optional but starting animations immediately in onCreate can make them choppy

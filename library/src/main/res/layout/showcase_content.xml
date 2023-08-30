@@ -13,8 +13,9 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:paddingLeft="5dp"
-        android:textSize="30dp"
-        android:layout_marginBottom="15dp" />
+        android:textSize="30sp"
+        android:layout_marginBottom="15dp"
+        android:paddingStart="5dp" />
 
     <TextView
         android:id="@+id/tv_content"
@@ -22,9 +23,10 @@
         android:layout_height="wrap_content"
         android:textColor="@android:color/white"
         android:paddingLeft="5dp"
-        android:textSize="20dp" />
+        android:textSize="20sp"
+        android:paddingStart="5dp" />
 
-    <TextView
+    <Button
         android:id="@+id/tv_dismiss"
         android:background="?android:attr/selectableItemBackground"
         android:layout_width="wrap_content"
@@ -36,8 +38,9 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:textColor="@android:color/white"
-        android:textSize="22dp"
-        android:visibility="gone" />
+        android:textSize="22sp"
+        android:visibility="gone"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/tv_skip"
@@ -51,7 +54,8 @@
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:textColor="@android:color/white"
-        android:textSize="18dp"
-        android:visibility="visible" />
+        android:textSize="18sp"
+        android:visibility="visible"
+        android:focusable="true" />
 
 </LinearLayout>
