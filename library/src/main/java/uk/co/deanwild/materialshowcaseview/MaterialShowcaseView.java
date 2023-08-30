@@ -480,6 +480,32 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
         }
     }
 
+    private void setDismissButtonMargins(int left, int top, int right, int bottom){
+        if (mDismissButton != null) {
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mDismissButton.getLayoutParams();
+            params.setMargins(left, top, right, bottom);
+            mDismissButton.setLayoutParams(params);
+        }
+    }
+
+    private void setDismissButtonPaddings(int left, int top, int right, int bottom){
+        if (mDismissButton != null) {
+            mDismissButton.setPadding(left, top, right, bottom);
+        }
+    }
+
+    private void setDismissButtonTextSize(float size){
+        if (mDismissButton != null) {
+            mDismissButton.setTextSize(size);
+        }
+    }
+
+    private void setDismissButtonAllCaps(boolean allCaps){
+        if (mDismissButton != null) {
+            mDismissButton.setAllCaps(allCaps);
+        }
+    }
+
     private void setSkipText(CharSequence skipText) {
         if (mSkipButton != null) {
             mSkipButton.setText(skipText);
@@ -722,6 +748,26 @@ public class MaterialShowcaseView extends FrameLayout implements View.OnTouchLis
 
         public Builder setDismissButtonBackgroundTint(int color){
             showcaseView.setDismissButtonBackgroundTint(color);
+            return this;
+        }
+
+        public Builder setDismissButtonMargins(int left, int top, int right, int bottom){
+            showcaseView.setDismissButtonMargins(left, top, right, bottom);
+            return this;
+        }
+
+        public Builder setDismissButtonPaddings(int left, int top, int right, int bottom){
+            showcaseView.setDismissButtonPaddings(left, top, right, bottom);
+            return this;
+        }
+
+        public Builder setDismissButtonTextSize(float size){
+            showcaseView.setDismissButtonTextSize(size);
+            return this;
+        }
+
+        public Builder setDismissButtonAllCaps(boolean allCaps){
+            showcaseView.setDismissButtonAllCaps(allCaps);
             return this;
         }
 
